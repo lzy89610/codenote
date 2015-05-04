@@ -1,6 +1,5 @@
 package com.codenote.test;
 
-import java.util.regex.Pattern;
 
 
 public class Test1
