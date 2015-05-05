@@ -15,8 +15,10 @@ public class Regex
 //		System.out.println(Pattern.matches("se{2}d", "seed"));		//匹配确定的 n 次
 //		System.out.println(Pattern.matches("se{2,3}d", "seeed"));	//最少匹配 n 次且最多匹配 m 次,如seeeed即为false
 //		System.out.println(Pattern.matches("9+", "9999"));			//最少匹配 n 次且最多匹配 m 次,如seeeed即为false
-		System.out.println(Pattern.matches("ab?", "a"));			//匹配前面的子表达式零次或一次,相当于 {0,1}
+//		System.out.println(Pattern.matches("ab?", "a"));			//匹配前面的子表达式零次或一次,相当于 {0,1}
 		
+		
+		System.out.println(Pattern.matches("\\$\\{.*\\}", "${helloworld}"));
 //		System.out.println(Pattern.matches("^hello.*", "helloworld"));		//.*即表示任意字符任意次
 //		System.out.println(Pattern.matches("^hello.{3}", "helloyou"));		//表示hello后面再跟3个字符
 //		System.out.println(Pattern.matches("^/question/\\d+$", "/question/232323"));
