@@ -1,4 +1,4 @@
-package com.codenote.utils;
+package com.codenote.utils.jdbc;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,15 +11,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * 单例模式创建一个jdbc工厂，该类主要提供获取数据库连接操作
+ * 不提供相关的创建查询、修改语句等相关操作
+ * @author lizeyu
+ *
+ */
 public class JdbcConnectionFactory
 {
 
 	/**
 	 * 配置文件目录地址
 	 */
-	// private String propertyFileDir = "d:/db-conn-config.properties";
-	// private String propertyFileDir = System.getProperty("user.dir") +
-	// "/atetplatform/config/**/*-config.xml";
 	private String propertyFileDir;
 
 	/**
@@ -50,12 +53,21 @@ public class JdbcConnectionFactory
 	/**
 	 * 获取一个数据库连接工厂
 	 */
-	private static JdbcConnectionFactory connFactory = null;
+	private static JdbcConnectionFactory connFactory;
 
 	public static JdbcConnectionFactory getConnFactoryInstance(
 			String propertyFileDir)
 	{
-		connFactory = new JdbcConnectionFactory(propertyFileDir);
+		if (connFactory == null)
+		{
+			synchronized (JdbcConnectionFactory.class)
+			{
+				if (connFactory == null)
+				{
+					connFactory = new JdbcConnectionFactory();
+				}
+			}
+		}
 		return connFactory;
 	}
 
