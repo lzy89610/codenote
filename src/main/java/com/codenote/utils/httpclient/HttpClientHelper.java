@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+
+
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -95,6 +98,8 @@ public class HttpClientHelper
 						+ response.getStatusLine().getStatusCode());
 				return null;
 			}
+			String setCookie = response.getFirstHeader("Set-Cookie").getValue();
+			System.out.println(setCookie);
 		}
 		catch(Exception e)
 		{
