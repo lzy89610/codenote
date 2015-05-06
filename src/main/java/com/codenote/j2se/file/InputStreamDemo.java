@@ -6,8 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import scala.util.control.Exception.Finally;
-
 public class InputStreamDemo
 {
 
